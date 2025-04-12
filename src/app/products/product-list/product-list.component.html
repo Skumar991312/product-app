@@ -1,0 +1,21 @@
+<div class="filter-bar">
+  <div class="filter-item">
+    <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search products by name" />
+    <label>Search by name</label>
+  </div>
+  <div class="filter-item">
+    <input type="number" class="form-control" [(ngModel)]="maxPrice" placeholder="Max price (₹)" />
+    <label>Price filter (₹)</label>
+  </div>
+</div>
+
+
+<div class="product-list">
+  <div class="product-card" *ngFor="let product of filteredProducts()">
+    <img [src]="product.imageUrl" alt="{{ product.name }}">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <p><strong>Price:</strong> ₹{{ product.price }}</p>
+    <button (click)="viewDetails(product.id)">View Details</button>
+  </div>
+</div>
